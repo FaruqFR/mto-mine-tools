@@ -1,0 +1,26 @@
+{
+  "source": "Road_2026.xlsx",
+  "fleet": [
+    {"name":"Iveco 30T","pressurePsi":102.26,"diameterIn":35},
+    {"name":"CAT 740","pressurePsi":70,"diameterIn":25,"payloadTon":39.195,"grossTon":74,"rearPercent":70},
+    {"name":"CAT 773","pressurePsi":115,"diameterIn":35,"payloadTon":53.52,"grossTon":99.3,"rearPercent":66.7},
+    {"name":"CAT 775","pressurePsi":115,"diameterIn":35,"payloadTon":64.149,"grossTon":109.77,"rearPercent":67},
+    {"name":"CAT 777","pressurePsi":110,"diameterIn":49,"grossTon":163.36,"rearPercent":67}
+  ],
+  "qsuarLines": [
+    {"name":"IPD ASTA Barat - Front SW Barat","distanceM":2200,"severity":"Good"},
+    {"name":"Front SW Barat - PIT 5","distanceM":600,"severity":"Severity soft"},
+    {"name":"Simpang Vienna - Front HW Barat","distanceM":1600,"severity":"Good - Soft"},
+    {"name":"Simpang Vienna - SW Timur","distanceM":1550,"severity":"Good - Soft"}
+  ],
+  "roadDensity": [
+    {"name":"Camp Nou","TLkm":1.8,"headSpacingM":50.3,"lane":2,"actualUnit":11},
+    {"name":"Etihad","TLkm":0.7,"headSpacingM":50.3,"lane":2,"actualUnit":30},
+    {"name":"Emirates","TLkm":0.2,"headSpacingM":50.3,"lane":2,"actualUnit":22},
+    {"name":"Marcana","TLkm":1.3,"headSpacingM":50.3,"lane":2,"actualUnit":22},
+    {"name":"Old Trafford","TLkm":0.9,"headSpacingM":50.3,"lane":2,"actualUnit":5},
+    {"name":"GBK","TLkm":0.7,"headSpacingM":50.3,"lane":2,"actualUnit":"Tentative"}
+  ],
+  "graderCapacityM2h": 20073,
+  "standardRoadWidthM": 25
+}
