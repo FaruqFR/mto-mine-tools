@@ -6,11 +6,10 @@
   const excCTmin=()=>((typeof cycleExc==='function'?cycleExc():['digging','swingLoaded','dumpingExc','swingEmpty'].reduce((s,id)=>s+n(id),0))/60);
 
   // 1) MATCH FACTOR
-  // MF = Na x tm / (Nm x ta), with tm = n x CTm and CTm/CTa in minutes.
+  // Requested formula: MF = (Na x CTm) / (Nm x CTa), all times in minutes.
   window.matchFactor=function(){
-    const Na=n('numTruck'), Nm=n('numExc'), CTm=n('loadingTimeMF')||excCTmin(), CTa=truckCTmin(), passes=n('passes');
-    const tm=passes*CTm;
-    const mf=(Nm>0&&CTa>0)?(Na*tm)/(Nm*CTa):NaN;
+    const Na=n('numTruck'), Nm=n('numExc'), CTm=n('loadingTimeMF')||excCTmin(), CTa=truckCTmin();
+    const mf=(Nm>0&&CTa>0)?(Na*CTm)/(Nm*CTa):NaN;
     if($('mfValue'))$('mfValue').textContent=Number.isFinite(mf)?fmt(mf):'—';
     if($('mfCta'))$('mfCta').value=CTa.toFixed(2);
     const b=$('mfStatusBadge'),t=$('mfStatusText');
@@ -40,7 +39,7 @@
 
   function labels(){
     const lm=$('loadingTimeMF')?.closest('label')?.querySelector('span');
-    if(lm)lm.innerHTML='CTm - Cycle Time Alat Muat <small>(menit)</small>';
+    if(lm)lm.innerHTML='CTm - Waktu Muat Total <small>(menit)</small>';
     const mc=$('mfCta')?.closest('label')?.querySelector('span');
     if(mc)mc.innerHTML='CTa - Cycle Time Alat Angkut <small>(menit)</small>';
     const tf=$('excCTProd')?.closest('label')?.querySelector('span');
@@ -48,7 +47,7 @@
     const ef=$('truckCTSec')?.closest('label')?.querySelector('span');
     if(ef)ef.innerHTML='CTm - Cycle Time Alat Muat <small>(menit)</small>';
     const mfFormula=document.querySelector('#match-factor .formula-display');
-    if(mfFormula)mfFormula.innerHTML='MF = <span>Na × (n × CTm)</span><hr><span>Nm × CTa</span><small style="display:block;margin-top:8px">tm = n × CTm &nbsp; | &nbsp; CTm dan CTa dalam menit</small>';
+    if(mfFormula)mfFormula.innerHTML='MF = <span>Na × CTm</span><hr><span>Nm × CTa</span><small style="display:block;margin-top:8px">CTm dan CTa dalam menit</small>';
     const trFormula=document.querySelector('#produktivit-as .formula-display');
     if(trFormula)trFormula.textContent='Q = (60 / CTa) × (n × q × FF × SF) × E';
     const exFormula=document.querySelector('#produktivitas-exc .formula-display');
